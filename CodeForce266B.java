@@ -12,32 +12,25 @@ public class CodeForce266B {
         String sequance = null;
         char[] charSequanceArray = null;
         countClass = sc.nextInt();
-        char[] tempSequanceArray = new char[countClass];
         sec = sc.nextInt();
-        sc.nextLine(); // clear buffer 
+        sc.nextLine(); // clear buffer
 
         sequance = sc.nextLine();
         charSequanceArray = sequance.toCharArray();
 
         for (int j = 0; j < sec; j++) {
+
             for (int i = 0; i < countClass - 1; i++) {
 
                 if (charSequanceArray[i] == 'B' && charSequanceArray[i + 1] == 'G') {
-                    tempSequanceArray[i] = charSequanceArray[i + 1];
-                    tempSequanceArray[i + 1] = charSequanceArray[i];
-                } else {
-                    if (i == 0) {
-                        tempSequanceArray[i] = charSequanceArray[i];
-                        tempSequanceArray[i + 1] = charSequanceArray[i + 1];
-                    } else {
-                        tempSequanceArray[i + 1] = charSequanceArray[i + 1];
-                    }
+                    char temp = charSequanceArray[i + 1];
+                    charSequanceArray[i + 1] = charSequanceArray[i];
+                    charSequanceArray[i] = temp;
+                    i++;
                 }
             }
+
         }
-        System.out.print(tempSequanceArray);
-
+        System.out.println(charSequanceArray);
     }
-
-
 }
